@@ -18,3 +18,8 @@ Hotel Booking Management System built with core Java data structures.
 - Accepts booking requests into a FIFO Queue using LinkedList
 - Adds 2-second processing delay using Thread.sleep before enqueueing
 - Ensures fair booking order during peak demand
+
+### UC4: Reservation Confirmation & Room Allocation
+- Confirms reservations by dequeuing from booking queue
+- Allocates unique room IDs using HashSet to prevent double-booking
+- Tracks room type assignments using HashMap with Set values

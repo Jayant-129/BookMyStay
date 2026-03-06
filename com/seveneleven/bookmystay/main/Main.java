@@ -8,6 +8,7 @@ package com.seveneleven.bookmystay.main;
 import com.seveneleven.bookmystay.service.InventoryService;
 import com.seveneleven.bookmystay.service.SearchService;
 import com.seveneleven.bookmystay.service.BookingQueueService;
+import com.seveneleven.bookmystay.service.ReservationService;
 import java.util.Scanner;
 
 public class Main {
@@ -16,9 +17,11 @@ public class Main {
         InventoryService inventoryService = new InventoryService();
         SearchService searchService = new SearchService(inventoryService);
         BookingQueueService bookingQueueService = new BookingQueueService();
+        ReservationService reservationService = new ReservationService(inventoryService, bookingQueueService);
         InventoryRunner inventoryRunner = new InventoryRunner(inventoryService, scanner);
         SearchRunner searchRunner = new SearchRunner(searchService, scanner);
         BookingQueueRunner bookingQueueRunner = new BookingQueueRunner(bookingQueueService, scanner);
+        ReservationRunner reservationRunner = new ReservationRunner(reservationService, scanner);
 
         int choice;
         do {
@@ -26,6 +29,7 @@ public class Main {
             System.out.println("1. Room Inventory Management");
             System.out.println("2. Room Search & Availability");
             System.out.println("3. Booking Request");
+            System.out.println("4. Reservation Confirmation");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -34,6 +38,7 @@ public class Main {
                 case 1: inventoryRunner.run(); break;
                 case 2: searchRunner.run(); break;
                 case 3: bookingQueueRunner.run(); break;
+                case 4: reservationRunner.run(); break;
                 case 0: System.out.println("Thank you for using BookMyStay!"); break;
                 default: System.out.println("Invalid choice. Try again.");
             }
