@@ -13,3 +13,8 @@ Hotel Booking Management System built with core Java data structures.
 - Read-only search over room inventory using HashMap lookups
 - Display available rooms with pricing information
 - Validate room availability before booking
+
+### UC3: Booking Request (First-Come-First-Served)
+- Accepts booking requests into a FIFO Queue using LinkedList
+- Adds 2-second processing delay using Thread.sleep before enqueueing
+- Ensures fair booking order during peak demand
