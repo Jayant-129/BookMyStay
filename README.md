@@ -27,3 +27,11 @@ Hotel Booking Management System built with core Java data structures.
 ### UC5: Add-On Service Selection
 - Uses a Map to attach multiple services (breakfast, spa, etc.) to a single reservation ID
 - Computes additional service costs dynamically
+
+### UC6: Booking History & Reporting
+- Appends confirmed reservations to a running List for persistence
+- Generates high-level business reports based on booking history
+- Supports guest-level search and auditing
+
+---
+Total no of useCase: 6 + 1

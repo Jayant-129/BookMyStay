@@ -10,6 +10,7 @@ import com.seveneleven.bookmystay.service.SearchService;
 import com.seveneleven.bookmystay.service.BookingQueueService;
 import com.seveneleven.bookmystay.service.ReservationService;
 import com.seveneleven.bookmystay.service.ServiceManagementService;
+import com.seveneleven.bookmystay.service.ReportingService;
 import java.util.Scanner;
 
 public class Main {
@@ -20,12 +21,14 @@ public class Main {
         BookingQueueService bookingQueueService = new BookingQueueService();
         ReservationService reservationService = new ReservationService(inventoryService, bookingQueueService);
         ServiceManagementService serviceManagementService = new ServiceManagementService();
+        ReportingService reportingService = new ReportingService(reservationService);
         
         InventoryRunner inventoryRunner = new InventoryRunner(inventoryService, scanner);
         SearchRunner searchRunner = new SearchRunner(searchService, scanner);
         BookingQueueRunner bookingQueueRunner = new BookingQueueRunner(bookingQueueService, scanner);
         ReservationRunner reservationRunner = new ReservationRunner(reservationService, scanner);
         ServiceSelectionRunner serviceSelectionRunner = new ServiceSelectionRunner(serviceManagementService, scanner);
+        ReportingRunner reportingRunner = new ReportingRunner(reportingService, scanner);
 
         int choice;
         do {
@@ -35,6 +38,7 @@ public class Main {
             System.out.println("3. Booking Request");
             System.out.println("4. Reservation Confirmation");
             System.out.println("5. Add-On Services");
+            System.out.println("6. Booking History & Reports");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -45,6 +49,7 @@ public class Main {
                 case 3: bookingQueueRunner.run(); break;
                 case 4: reservationRunner.run(); break;
                 case 5: serviceSelectionRunner.run(); break;
+                case 6: reportingRunner.run(); break;
                 case 0: System.out.println("Thank you for using BookMyStay!"); break;
                 default: System.out.println("Invalid choice. Try again.");
             }
