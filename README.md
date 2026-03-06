@@ -23,3 +23,7 @@ Hotel Booking Management System built with core Java data structures.
 - Confirms reservations by dequeuing from booking queue
 - Allocates unique room IDs using HashSet to prevent double-booking
 - Tracks room type assignments using HashMap with Set values
+
+### UC5: Add-On Service Selection
+- Uses a Map to attach multiple services (breakfast, spa, etc.) to a single reservation ID
+- Computes additional service costs dynamically
